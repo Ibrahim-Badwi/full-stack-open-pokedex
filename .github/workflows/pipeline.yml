@@ -8,6 +8,7 @@ on:
     branches: [master]
     types: [opened, synchronize]
 
+
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-18.04
@@ -42,6 +43,7 @@ jobs:
           healthcheck: "https://${{secrets.HEROKU_APP_NAME}}.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+<<<<<<< HEAD
 
       - uses: actions/checkout@v2
       - name: Bump version and push tag
@@ -51,3 +53,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: "patch"
           DRY_RUN: true
+||||||| parent of cc8ecc2 (update pipeline)
+=======
+
+      - uses: actions/checkout@v2
+      - name: Bump version and push tag
+        if: ${{ github.event_name == 'push' }}
+        uses: anothrNick/github-tag-action@1.33.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: "patch"
+          DRY_RUN: true
+>>>>>>> cc8ecc2 (update pipeline)
