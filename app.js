@@ -15,9 +15,9 @@ app.get('/version', (req, res) => {
 })
 
 app.get('/hello/:name', (req, res) => {
-  res.write('/* ====================== */\n\n')
+  res.write('/* ======================= */\n\n')
   res.write(`Hello ${req.params.name}.\n\n`)
-  res.write('/* ====================== */')
+  res.write('/* ======================= */')
 
   res.end()
 })
