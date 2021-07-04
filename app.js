@@ -14,6 +14,14 @@ app.get('/version', (req, res) => {
   res.send('1')
 })
 
+app.get('/hello/:name', (req, res) => {
+  res.write('/* ======================= */\n\n')
+  res.write(`Hello ${req.params.name}.\n\n`)
+  res.write('/* ======================= */')
+
+  res.end()
+})
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log('server started on port 5000')
